@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "18"
+  # SQLite will use in-memory database on serverless
+  NPM_FLAGS = "--include=optional"
+
+# Next.js configuration
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["data/**"]
+
