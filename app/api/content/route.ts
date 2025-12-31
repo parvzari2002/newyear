@@ -9,15 +9,15 @@ import {
   initDatabase,
 } from '@/lib/database'
 
-// Initialize database on module load
-initDatabase()
-
 export async function GET(request: NextRequest) {
   try {
+    // Initialize database if needed
+    await initDatabase()
+    
     const searchParams = request.nextUrl.searchParams
     const type = searchParams.get('type') as UserType | null
 
-    const allContent = getAllContent()
+    const allContent = await getAllContent()
     let filteredContent = allContent
 
     if (type) {
@@ -36,10 +36,13 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    // Initialize database if needed
+    await initDatabase()
+    
     const body = await request.json()
     const content: ContentItem = body
 
-    const created = createContent(content)
+    const created = await createContent(content)
 
     return NextResponse.json({ success: true, content: created })
   } catch (error) {
@@ -50,10 +53,13 @@ export async function POST(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
+    // Initialize database if needed
+    await initDatabase()
+    
     const body = await request.json()
     const { id, ...updates } = body
 
-    const updated = updateContent(id, updates)
+    const updated = await updateContent(id, updates)
 
     if (!updated) {
       return NextResponse.json({ error: 'Content not found' }, { status: 404 })
@@ -68,6 +74,9 @@ export async function PUT(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
   try {
+    // Initialize database if needed
+    await initDatabase()
+    
     const searchParams = request.nextUrl.searchParams
     const id = searchParams.get('id')
 
@@ -75,7 +84,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'ID is required' }, { status: 400 })
     }
 
-    const deleted = deleteContent(id)
+    const deleted = await deleteContent(id)
 
     if (!deleted) {
       return NextResponse.json({ error: 'Content not found' }, { status: 404 })
