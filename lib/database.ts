@@ -76,6 +76,11 @@ export async function initDatabase(): Promise<SqlJsDatabase> {
       console.log('Using in-memory SQLite database (serverless mode)')
     }
 
+    // Ensure db is not null
+    if (!db) {
+      throw new Error('Failed to initialize database')
+    }
+
     // Create table if it doesn't exist
     db.run(`
       CREATE TABLE IF NOT EXISTS content (
