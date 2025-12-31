@@ -69,7 +69,7 @@ export default function CoupleForm() {
           >
             <Heart className="w-16 h-16 text-pink-500" fill="currentColor" />
           </motion.div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">Couple's New Year Form</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">Couple&apos;s New Year Form</h1>
           <p className="text-gray-600">Step {currentStep} of {totalSteps}</p>
         </div>
 
@@ -108,7 +108,7 @@ export default function CoupleForm() {
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
-                  Partner's Name *
+                  Partner&apos;s Name *
                 </label>
                 <input
                   type="text"
@@ -191,7 +191,7 @@ export default function CoupleForm() {
                 <h3 className="font-bold text-gray-800 mb-4">Review Your Information</h3>
                 <div className="space-y-2 text-gray-700">
                   <p><strong>Your Name:</strong> {formData.name1}</p>
-                  <p><strong>Partner's Name:</strong> {formData.name2}</p>
+                  <p><strong>Partner&apos;s Name:</strong> {formData.name2}</p>
                   <p><strong>Together for:</strong> {formData.relationship}</p>
                   {formData.favoriteMemory && (
                     <p><strong>Favorite Memory:</strong> {formData.favoriteMemory}</p>

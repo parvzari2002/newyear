@@ -69,7 +69,7 @@ export default function FriendsForm() {
           >
             <Users className="w-16 h-16 text-blue-500" />
           </motion.div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">Friends' New Year Form</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">Friends&apos; New Year Form</h1>
           <p className="text-gray-600">Step {currentStep} of {totalSteps}</p>
         </div>
 
@@ -108,7 +108,7 @@ export default function FriendsForm() {
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
-                  Friend's Name *
+                  Friend&apos;s Name *
                 </label>
                 <input
                   type="text"
@@ -191,7 +191,7 @@ export default function FriendsForm() {
                 <h3 className="font-bold text-gray-800 mb-4">Review Your Information</h3>
                 <div className="space-y-2 text-gray-700">
                   <p><strong>Your Name:</strong> {formData.name1}</p>
-                  <p><strong>Friend's Name:</strong> {formData.name2}</p>
+                  <p><strong>Friend&apos;s Name:</strong> {formData.name2}</p>
                   <p><strong>Friends for:</strong> {formData.relationship}</p>
                   {formData.favoriteMemory && (
                     <p><strong>Best Memory:</strong> {formData.favoriteMemory}</p>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Heart, Sparkles, Quote, Image as ImageIcon, Video, Activity } from 'lucide-react'
 import Confetti from 'react-confetti'
@@ -164,11 +165,13 @@ export default function CoupleDisplay() {
             </div>
 
             {currentContent.imageUrl && (
-              <div className="mt-6 rounded-lg overflow-hidden">
-                <img
+              <div className="mt-6 rounded-lg overflow-hidden relative w-full h-64">
+                <Image
                   src={currentContent.imageUrl}
                   alt={currentContent.title}
-                  className="w-full h-auto"
+                  fill
+                  className="object-cover rounded-lg"
+                  unoptimized
                 />
               </div>
             )}
